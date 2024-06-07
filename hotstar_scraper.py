@@ -11,7 +11,7 @@ from multiprocessing import Process, Manager, Value
 def get_tv_shows_list():
     urls = set()
     tv_shows_main_page_url = "https://www.hotstar.com/in/new-sitemap-SHOWS-1.xml"
-    response = requests.get(tv_shows_main_page_url, verify=False)
+    response = requests.get(tv_shows_main_page_url, verify=True)
     soup = BeautifulSoup(response.text, "html.parser")
     for i in soup.find_all("loc"):
         urls.add(i.text)
